@@ -1,0 +1,46 @@
+@startuml Domæne-model til Budweg
+Class Station {
+    stationsId
+    stationsType
+    
+}
+
+Class Medarbejder {
+    medarbejderId
+    navn
+    
+}
+
+Class Bremsekaliber {
+    bremsekaliberType
+    bremsekaliberId
+    bremsekaliberStatus
+    notering af notation
+    
+}
+
+Class Renoveringstatus {
+    modtaget
+    kasseret
+    afsendt
+    
+}
+
+Class Færdiggørelse {
+    dato
+    lagerId
+}
+
+
+
+
+/'Class  Reservedel{
+   reservedelsType
+   reservedelsId
+   reservedelsmængde
+    
+}
+'/
+hide circle
+
+@enduml
