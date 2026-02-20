@@ -1,0 +1,38 @@
+@startuml Objekt-Model til Budweg
+left to right direction
+rectangle "Renoveringsstatus" as RS #line:white; {
+usecase UC5 as "Modtaget
+Sortering
+"
+}
+
+rectangle "Bremsekaliber" as BK #line:white; {
+usecase UC1 as "Forhjulsbremsekaliber 
+Brugt
+123456789
+83013
+3810283
+Rustet kaliber"
+}
+
+rectangle "Reservedele" as RD #line:white; {
+usecase UC2 as "Stempeltætning 
+Mængde: 150"
+}
+
+rectangle "Station" as ST #line:white; {
+usecase UC3 as "Type 1
+Sortering
+"
+}
+
+RS -right-> BK
+BK -right-> ST
+RD -right-> ST
+
+RS -[hidden]right-> BK
+BK -[hidden]right-> RD
+RD -[hidden]right-> ST
+
+
+@enduml

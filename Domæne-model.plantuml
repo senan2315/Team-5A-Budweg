@@ -1,46 +1,42 @@
 @startuml Domæne-model til Budweg
 Class Station {
-    stationsId
     stationsType
-    
-}
-
-Class Medarbejder {
-    medarbejderId
-    navn
-    
+    stationsNavn
 }
 
 Class Bremsekaliber {
     bremsekaliberType
-    bremsekaliberId
     bremsekaliberStatus
-    notering af notation
-    
+    stregkode
+    kaliberNummer
+    ordreNummer
+    note
 }
 
-Class Renoveringstatus {
+note right of Bremsekaliber
+    Forretningsregler (UC1)
+    - Kaliber skal have stregkode før scanning
+    - Hvis scanning fejler, kan stregkode indtastes manuelt
+    - Ved "send til næste station" opdateres status
+    - Kaliber skal være registreret i systemet
+end note
+
+Class Renoveringstatus <<enumeration>> {
     modtaget
+    adskilt
     kasseret
     afsendt
-    
 }
 
-Class Færdiggørelse {
-    dato
-    lagerId
-}
-
-
-
-
-/'Class  Reservedel{
+Class  Reservedel{
    reservedelsType
-   reservedelsId
-   reservedelsmængde
-    
+   reservedelsMængde
 }
-'/
-hide circle
 
+Reservedel "0..*" -- "1..*" Station
+Renoveringstatus .. Bremsekaliber
+Bremsekaliber "0..*" -- "1..*" Station
+
+hide circle
+hide methods
 @enduml
