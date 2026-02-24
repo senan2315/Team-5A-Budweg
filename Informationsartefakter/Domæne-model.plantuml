@@ -14,11 +14,19 @@ Class Bremsekaliber {
 }
 
 note right of Bremsekaliber
-    Forretningsregler (UC1)
-    - Kaliber skal have stregkode før scanning
-    - Hvis scanning fejler, kan stregkode indtastes manuelt
-    - Ved "send til næste station" opdateres status
-    - Kaliber skal være registreret i systemet
+    Forretningsregler (UC1):
+    - Budweg modtager partier af brugte bremsekalibre
+
+    - Disse kalibre er pakket i emballage med 
+      stregkode som indeholder varenummer.
+
+    - De bliver sorteret efter bremsekalibermodel 
+      (vha. stregkode fra emballage), og lagt på lager.
+      
+    - Når et parti af bremsekalibre skal renoveres, får hver kaliber
+      af samme type et klistermærke med en stregkode, 
+      der er unik for den enkelte kaliber.
+
 end note
 
 Class Renoveringstatus <<enumeration>> {
