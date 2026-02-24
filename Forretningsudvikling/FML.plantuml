@@ -1,0 +1,81 @@
+@startuml FML Diagram for Budweg
+package "FML Budweg"  {
+
+class Nøglepartnere {
+    Grossister som Triscan, 
+    FTZ, Mekonomen og AD Baltic
+    
+    Private Label som Brembo,
+    Continental, Remy og Herth+Buss
+
+    (Partnere der levere bremsekalibre til budweg)
+}
+
+class Nøgleaktiviteter {
+    Produktion af bremsekalibre, reservedele,
+    EPB motor, reservedelssæt
+
+    Netværk: Vedligeholde kontakt
+    med deres samarbejdsfirmaer
+}
+
+class Værditilbud{
+    Bæredygtighed
+    Genbruger gamle dele
+    God Høj leveringssikkerhed 
+}
+
+class Nøgleressourcer {
+    Hovedkontor i Odense
+    Lager
+    Bremse kaliber
+    Reservedele
+    EPB motor
+    Reservedelssæt
+}
+
+class Kunderelationer {
+    Budweg har store kundegrupper
+    som de er leverandører til
+}
+
+class Kanaler {
+    Grossister
+    Distributører
+    Customer Support
+}
+
+
+class Kundesegmenter {
+    Budwegs kunder er både private og erhvervskunder, 
+    som køber bremsekalibre og reservedele til biler.
+    Derfor er det et segmenteret marked da de
+    via forskellige kanaler sælger de samme produkter
+
+    (Der hvor deres reservedele og bremsekalibre bliver solgt)
+}
+
+class Omkostningsstruktur {
+    Personaleomkostninger:
+    Indkøber
+    Lagerpersonale
+    Sælger
+    Indkøb af reservedele
+    Indkøb af materialer til at reparere reservedele
+    Logistik og transport
+}
+
+class Indtægtsstrømme {
+    Gentagne indtægter
+    Salg af værdi
+    Prisen er mængdeafhængig
+    (Indtægter fra salg af bremsekalibre og reservedele)
+    og bliver aftalt individuelt med grossister
+    og distributører.
+}
+
+hide circles
+hide method
+}
+
+@enduml

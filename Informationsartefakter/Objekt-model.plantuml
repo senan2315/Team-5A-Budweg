@@ -1,0 +1,44 @@
+@startuml Objekt-Model til Budweg
+
+<style>
+actor{ /' Formatering af aktører '/
+    LineColor:white;
+    BackgroundColor:white;
+    FontStyle:Bold;
+}
+</style>
+
+skinparam actorStyle Hollow /'Gør Aktører så små som muligt '/
+Actor Bremsekaliber as A1 
+Actor Reservedele as A2
+Actor Station as A3
+Actor Renoversstatus as A4
+
+usecase UC1 as "Forhjulsbremsekaliber 
+Brugt
+123456789
+83013
+3810283
+Rustet kaliber"
+
+usecase UC2 as "Stempeltætning 
+Mængde: 150"
+
+usecase UC3 as "Type 1
+Sortering
+"
+
+usecase UC4 as "Modtaget
+Sortering
+"
+
+UC2 -right- UC1
+UC1 -right- UC3
+UC3 -right- UC4
+
+A1 -down-> UC1 #line:white; /'Fjerne pile der peger ned '/
+A2 -down-> UC2 #line:white;
+A3 -down-> UC3 #line:white;
+A4 -down-> UC4 #line:white;
+
+@enduml
