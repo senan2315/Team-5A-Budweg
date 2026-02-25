@@ -10,7 +10,7 @@ System --> Medarbejder: Systemet har registreret status og station
 
 Medarbejder -> System: vælgAfsendBremseKaliber(Status)
 System --> Medarbejder: Registreret som afsendt
-System --> Medarbejder: Gemt i historik
+System --> Medarbejder: Systemet bekræfter og gemmer
 
 
 hide footbox

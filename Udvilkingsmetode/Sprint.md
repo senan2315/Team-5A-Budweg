@@ -17,6 +17,7 @@
 * Objektmodel
 * Systemsekvensdiagram
 * Systemoperationskontrakter
+* BPMN
 * Arbejde med Scrum
 * Synopsen
 
