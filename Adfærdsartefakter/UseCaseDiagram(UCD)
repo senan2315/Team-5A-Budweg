@@ -1,0 +1,13 @@
+@startuml - Use Case Diagram for Lærervikaren
+left to right direction
+actor "Medarbejder" as m
+rectangle Budweg {
+  usecase "Scan og flyt kaliber til næste station" as UC1
+  usecase "Opret og registrér nye bremsekalibre" as UC2
+  usecase "Pak bremsekaliber til lager" as UC3
+}
+m --> UC1
+m --> UC2
+m --> UC3
+
+@enduml

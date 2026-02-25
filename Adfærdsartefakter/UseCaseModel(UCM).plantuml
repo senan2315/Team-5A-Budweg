@@ -1,0 +1,12 @@
+@startuml - Use Case Model for Budweg
+
+@startsalt Use Case Model for Budweg
+{#
+  **Use Case # ** | **Use Case Navn**
+  UC1 | Scan og flyt kaliber til næste station
+  UC2 | Opret og registrér nye bremsekalibre
+  UC3 | Pak bremsekaliber til lager
+}
+@endsalt
+@enduml
+

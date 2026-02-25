@@ -1,0 +1,18 @@
+@startuml SSD
+title Scan og flyt kaliber til næste station
+
+Actor ": Medarbejder" as Medarbejder
+participant ": System" as System
+
+Medarbejder -> System: vælgModtagBremseKaliber(Status)
+System --> Medarbejder: Systemet har registreret id'et
+System --> Medarbejder: Systemet har registreret status og station
+
+Medarbejder -> System: vælgAfsendBremseKaliber(Status)
+System --> Medarbejder: Registreret som afsendt
+System --> Medarbejder: Gemt i historik
+
+
+hide footbox
+
+@enduml
