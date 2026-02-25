@@ -1,14 +1,14 @@
 # Use Cases
 ### **UC1**: Scan og flyt kaliber til næste station
 
-**Primær aktør**: Medarbejder
+**Primær aktør**: Medarbejder.
 
-**Formål**: Kaliberen er oprettet i systemet og har en stregkode
+**Formål**: Kaliberen er oprettet i systemet og har en stregkode.
 
 **Scope**: Oprettet, scannet og registreret kalibre i lageret.
 
 
-**Level**: User-goal
+**Level**: User-goal.
 
 **Interessenter og interesser**:
 * **Medarbejder**: Givet et overblik og hvilke kalibre som er ved deres station.
