@@ -1,0 +1,25 @@
+@startuml SOC Budweg
+skinparam handwritten false
+skinparam defaultFontName Arial
+
+title Systemoperationskontrakter (SOC) for Budweg
+
+map SOC_ModtagBremseKaliber {
+    Operation => vælgModtagBremseKaliber(Status)
+    Cross_reference => UC1: Scan og flyt kaliber til næste station
+    Precondition => System har afsendt bremsekaliber\n
+    Postcondition => En ny bremsekaliber blev oprettet (instance creation)\nBremsekaliberen blev associeret med Lageret (association formed)\nStatus blev ændret til 'Modtaget' (attribute modification)
+    Output => Bekræftelsesmeddelse
+}
+
+map SOC_AfsendBremseKaliber {
+    Operation => vælgAfsendBremseKaliber(Status)
+    Cross_reference => UC1: Scan og flyt kaliber til næste station
+    Precondition => System har modtaget bremsekaliber\n
+    Postcondition => Status blev ændret til 'Afsendt' (attribute modification)\nLokation blev opdateret (attribute modification)\nEn historiklog blev oprettet (instance creation)\nHistorikloggen blev associeret med bremsekaliberen (association formed)
+    Output => Afsendt bremsekaliber er registreret
+}
+
+SOC_ModtagBremseKaliber -[hidden]down-> SOC_AfsendBremseKaliber
+
+@enduml
