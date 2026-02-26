@@ -1,7 +1,6 @@
 @startuml BPMN Budweg
 !define BPMN_ENTITY entity
-skinparam monochrome true
-skinparam shadowing false
+
 skinparam ActivityStartColor white
 skinparam ActivityEndColor black
 
