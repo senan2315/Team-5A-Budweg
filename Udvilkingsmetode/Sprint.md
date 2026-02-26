@@ -19,15 +19,15 @@
 * Systemoperationskontrakter
 * BPMN
 * Arbejde med Scrum
-* Synopsen
+* Systemdokumentation
 
 ## Sprint 1 done 
 
-* Beskrivelse af et sprint-forløb
+* Vi har udarbejdet artefakterne fra sprint 1 og er blevet færdige i slutningen af uge 9. Vi starter på sprint 2 i uge 10.
 
 # Sprint 2 uge 10 - 12
 
-* Pakkediagram
+* Pakkediagram 
 * Desginklassediagram
 * Sekvensdiagram
 * Relationel Databasemodel -> UML Databasemodel -> SQL  Database
