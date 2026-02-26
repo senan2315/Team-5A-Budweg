@@ -1,0 +1,46 @@
+@startuml BPMN Budweg
+!define BPMN_ENTITY entity
+skinparam monochrome true
+skinparam shadowing false
+skinparam ActivityStartColor white
+skinparam ActivityEndColor black
+
+title BPMN: Digital Renoveringsproces for Bremsekalibre (Budweg)
+
+|#White|Lager (Modtagelse)|
+start
+:Modtag parti af brugte bremsekalibre;
+:Scan emballage-stregkode (varenummer);
+:Sortér efter model;
+:Læg på lager;
+
+|#White|Produktion (Stationer)|
+:Start renovering af parti;
+:Påsæt unik stregkode-klistermærke på hver kaliber;
+note right: System opretter ID i database
+
+repeat
+  :Scan kaliber ved station;
+  |System (WPF App)|
+  :Opdater status i systemet;
+  note right: Jf. Domænemodel:\nModtaget -> Adskilt
+  
+  |Produktion (Stationer)|
+  if (Kan kaliberen renoveres?) then (Nej)
+    :Markér som "Kasseret";
+    stop
+  else (Ja)
+    :Udfør arbejde på station;
+  endif
+backward :Flyt til næste station;
+repeat while (Er kaliberen færdigrenoveret?) is (Nej)
+
+|Lager (Afsendelse)|
+:Pak færdigrenoveret kaliber;
+:Scan og opdater status til "Afsendt";
+:Send til kunde/grossist;
+
+stop
+
+footer Proces baseret på Budweg Business Case & Domænemodel
+@enduml

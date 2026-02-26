@@ -30,9 +30,9 @@
 * Pakkediagram
 * Desginklassediagram
 * Sekvensdiagram
+* Relationel Databasemodel -> UML Databasemodel -> SQL  Database
 * C#-Kode
 * Unit Test
-* Relationel Databasemodel -> UML Databasemodel -> SQL  Database
 * Synopsen
 
 # Sprint 2 done
