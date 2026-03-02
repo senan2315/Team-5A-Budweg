@@ -1,0 +1,56 @@
+@startuml PackageDiagram
+
+left to right direction
+'/ Hvad skal navngivningen for MainWindow være? MainWindow eller BudwegMainWindow?
+Package UI{
+    package MainWindow  
+    package StatusWindow
+}
+
+Package APPLICATION{
+    package Controller
+    package MainViewModel
+    package BremsekaliberViewModel
+    package StationViewModel
+    package ReservedelViewModel
+}
+ 
+Package DOMAIN{
+    package ReservedelRepository
+    package StationRepository
+    package BremsekaliberRepository
+    package Reservedel
+    package Station
+    package Bremsekaliber
+    package Renoveringstatus<<enumeration>>
+
+}
+
+Package TechnicalService{
+    package DBBudweg
+}
+
+
+UI -[dotted]-> APPLICATION
+APPLICATION -[dotted]-> DOMAIN
+DOMAIN -[dotted]-> TechnicalService
+
+
+'/ Til UI pakken
+
+
+'/Applikations pakken
+
+
+'/Domæne pakken
+StationRepository -[dotted]- Station
+BremsekaliberRepository -[dotted]- Bremsekaliber
+ReservedelRepository -[dotted]- Reservedel
+
+'/TechnicalService pakken
+
+
+hide methods
+hide circle
+
+@enduml
