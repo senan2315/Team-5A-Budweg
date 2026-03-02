@@ -1,0 +1,62 @@
+@startuml - Designklassediagram (DCD) Budweg
+left to right direction 
+
+
+package "Model(Domain)" {
+    class Station {
+        - stationsType: String
+        - stationsNavn: String
+        + Station()
+    }
+
+    class Bremsekaliber {
+        - bremsekaliberType: String
+        - bremsekaliberStatus: String
+        - stregkode: String
+        - kaliberNummer: String
+        - ordreNummer: String 
+        - note: String
+        + Bremsekaliber() 
+    }
+
+    class Renoveringstatus <<enumeration>> {
+        modtaget
+        adskilt
+        kasseret
+        afsendt
+    }
+
+    class Reservedel{
+       - reservedelsType: String
+       - reservedelsMængde: int
+       + Reservedel()
+    }
+}
+package "ViewModel(Application)"{
+    class BremsekaliberRepository {
+        
+    }
+    class StationRepository {
+        
+    }
+    class ReservedelRepository {
+        
+    }
+    class Controller {
+
+        
+    }
+}
+package "View(UI)" {
+    class d{
+    }
+    class I {
+        
+    }
+}
+
+
+
+hide circle
+
+@enduml

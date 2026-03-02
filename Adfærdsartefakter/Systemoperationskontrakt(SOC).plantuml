@@ -1,5 +1,4 @@
 @startuml SOC Budweg
-skinparam handwritten false
 skinparam defaultFontName Arial
 
 title Systemoperationskontrakter (SOC) for Budweg
