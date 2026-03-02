@@ -11,10 +11,10 @@
 
 * Jeppe Tungelund
 
-* Mika Rischel
+* Mika Augustini Rischel
 
 * Senan Salah Al-badrey
 
 * Tore Bleeg Jürgensen
 
-* Peter Zimmertoft
+* Peter Nørtoft
