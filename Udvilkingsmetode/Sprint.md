@@ -28,7 +28,7 @@
 # Sprint 2 uge 10 - 12
 
 * Pakkediagram
-* Desginklassediagram
+* Designklassediagram
 * Sekvensdiagram
 * Relationel Databasemodel -> UML Databasemodel -> SQL  Database
 * C#-Kode
