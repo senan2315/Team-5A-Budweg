@@ -1,0 +1,32 @@
+@startsalt Wireframe
+{+
+  {
+    <b>mainwindow
+    --
+    {
+      "  = Budweg  "
+    }
+  }
+  {+
+    .
+    [      Modtag      ]
+    [      Afsend      ]
+    [      Kassér      ]
+    [       Note       ]
+    [   Kaliberinfo    ]
+    .
+    --
+    {
+      .
+      "Indhold indlæses her..."
+      .
+      .
+      .
+      .
+    }
+  }
+  {
+    [  <  ] | [  O  ] | [  □  ]
+  }
+}
+@endsalt

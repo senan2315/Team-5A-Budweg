@@ -8,7 +8,6 @@ Package UI{
 }
 
 Package APPLICATION{
-    package Controller
     package MainViewModel
     package BremsekaliberViewModel
     package StationViewModel
