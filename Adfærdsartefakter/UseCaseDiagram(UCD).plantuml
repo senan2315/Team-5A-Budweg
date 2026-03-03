@@ -1,4 +1,4 @@
-@startuml - Use Case Diagram for Lærervikaren
+@startuml - Use Case Diagram for Budweg
 left to right direction
 actor "Medarbejder" as m
 rectangle Budweg {

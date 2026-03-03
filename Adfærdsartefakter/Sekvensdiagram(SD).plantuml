@@ -1,0 +1,34 @@
+@startuml SD
+title Sekvensdiagram (SD) – UC1: Scan og flyt kaliber til næste station
+
+actor "Medarbejder" as Medarbejder
+boundary "UI" as UI
+control "Controller" as Controller
+entity "BremsekaliberRepository" as BKRepo
+entity "StationRepository" as StationRepo
+
+Medarbejder -> UI: Scanner stregkode
+UI -> Controller: ModtagBremsekaliber(stregkode)
+Controller -> BKRepo: FindByStregkode(stregkode)
+BKRepo --> Controller: Bremsekaliber
+Controller --> UI: Vis status og station
+
+Medarbejder -> UI: Vælger "Send til næste station"
+UI -> Controller: AfsendBremsekaliber(stregkode)
+Controller -> StationRepo: GetNextStation(stationsNavn)
+StationRepo --> Controller: Næste station
+Controller -> BKRepo: MoveToNextStation(kaliberNummer)
+Controller -> BKRepo: UpdateStatus(kaliberNummer, status)
+BKRepo --> Controller: Opdatering gemt
+Controller --> UI: Bekræftelse vist
+
+alt Stregkode kan ikke læses af scanner
+	Medarbejder -> UI: Indtaster stregkode manuelt
+	UI -> Controller: ModtagBremsekaliber(stregkode)
+	Controller -> BKRepo: FindByStregkode(stregkode)
+	BKRepo --> Controller: Bremsekaliber
+	Controller --> UI: Vis status og station
+end
+
+hide footbox
+@enduml

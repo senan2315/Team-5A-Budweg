@@ -1,0 +1,44 @@
+# FURPS+ - Budweg
+
+## F – Functionality (Funktionalitet)
+- Systemet skal kunne registrere en ny bremsekaliber via stregkode (UC2).
+- Systemet skal kunne finde en eksisterende bremsekaliber via stregkode (UC1).
+- Systemet skal kunne opdatere status og flytte bremsekaliber til næste station (UC1).
+- Systemet skal kunne registrere, at en bremsekaliber er pakket og sendt til lager (UC3).
+- Systemet skal kunne vise aktuel status og station for en bremsekaliber.
+
+## U – Usability (Brugervenlighed)
+- En medarbejder skal kunne gennemføre en standard scanning og statusopdatering på under 10 sekunder.
+- Fejlmeddelelser skal være tydelige og handlingsanvisende (fx “Stregkode ikke fundet – indtast manuelt”).
+- Skærmbilleder til scanning og oprettelse skal bruge samme begreber som i use cases.
+
+## R – Reliability (Pålidelighed)
+- Systemet skal gemme alle statusændringer uden datatab ved normal drift.
+- Systemet skal validere stregkoder før oprettelse/opdatering.
+- Ved fejl i scanning skal manuel indtastning kunne gennemføres uden tab af procesdata.
+
+## P – Performance (Ydelse)
+- Opslag af bremsekaliber via stregkode skal returnere resultat inden for 2 sekunder.
+- Gem af statusændring skal gennemføres inden for 2 sekunder.
+- Systemet skal kunne håndtere samtidige opdateringer fra flere stationer i produktionen.
+
+## S – Supportability (Vedligeholdelse)
+- Statusværdier skal være samlet ét sted, så de er nemme at udvide.
+- Repositories og controller skal have ens navngivning på tværs af artefakter.
+- Systemet skal understøtte simpel logning af centrale hændelser (modtaget, afsendt, pakket).
+
+## + Design Constraints
+- Løsningen modelleres med PlantUML-artefakter i dette projekt.
+- Navngivning i analyseartefakter holdes på dansk for konsistens.
+
+## + Implementation Constraints
+- Datafelter for bremsekaliber skal mindst omfatte: stregkode, kaliberNummer, ordreNummer, status og station.
+- Statusopdatering må kun ske via definerede systemoperationer.
+
+## + Interface Constraints
+- Input fra scanner behandles som stregkodestreng.
+- Manuel indtastning skal følge samme valideringsregler som scanner-input.
+
+## + Physical Constraints
+- Systemet bruges i produktionsmiljø med flere stationer.
+- Løsningen skal kunne anvendes på standard arbejdsstationer i drift.

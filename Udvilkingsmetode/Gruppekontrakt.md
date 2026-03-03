@@ -25,7 +25,7 @@ Hvordan fordeler I opgaverne og sikrer, at alle bidrager?
 - Vi vil gøre brug af GitHub hvor vi har oprettet et project inde i vores fælles GitHub repository for Budweg, til at fordele opgaverne mellem teamets medlemmer - samt for at overholde deadlines. 
 
 - Ved gruppebordet er der én person der har HDMI stikket, og dagens opgaver bliver lavet i fællesskab på vedkommendes computer, dette går på skift.
-*Arbejdet på UCL foregår fælles, medmindre andet er aftalt.*
+*Arbejdet på UCL foregår fælles, medmindre andet er aftalt.
 
 Hvor meget tid vil I bruge på hjemmearbejde? 
 

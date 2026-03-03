@@ -1,14 +1,14 @@
 @startuml SSD
-title Scan og flyt kaliber til næste station
+title <u>Scan og flyt kaliber til næste station </u>
 
 Actor ": Medarbejder" as Medarbejder
 participant ": System" as System
 
-Medarbejder -> System: vælgModtagBremseKaliber(Status)
+Medarbejder -> System: ModtagBremseKaliber(Status)
 System --> Medarbejder: Systemet har registreret id'et
 System --> Medarbejder: Systemet har registreret status og station
 
-Medarbejder -> System: vælgAfsendBremseKaliber(Status)
+Medarbejder -> System: AfsendBremseKaliber(Status)
 System --> Medarbejder: Registreret som afsendt
 System --> Medarbejder: Systemet bekræfter og gemmer
 

@@ -3,22 +3,27 @@ skinparam defaultFontName Arial
 
 title Systemoperationskontrakter (SOC) for Budweg
 
-map SOC_ModtagBremseKaliber {
-    Operation => vælgModtagBremseKaliber(Status)
+map SOC_ModtagBremsekaliber {
+    Operation => ModtagBremsekaliber(status)
     Cross_reference => UC1: Scan og flyt kaliber til næste station
     Precondition => System har afsendt bremsekaliber\n
-    Postcondition => En ny bremsekaliber blev oprettet (instance creation)\nBremsekaliberen blev associeret med Lageret (association formed)\nStatus blev ændret til 'Modtaget' (attribute modification)
+    Postcondition => En ny bremsekaliber blev oprettet (instance creation)\nBremsekaliberen blev associeret med lageret (association formed)\nStatus blev ændret til 'Modtaget' (attribute modification)
     Output => Kaliber modtaget
 }
 
-map SOC_AfsendBremseKaliber {
-    Operation => vælgAfsendBremseKaliber(Status)
+map SOC_AfsendBremsekaliber {
+    Operation => AfsendBremsekaliber(status)
     Cross_reference => UC1: Scan og flyt kaliber til næste station
     Precondition => System har modtaget bremsekaliber\n
     Postcondition => Status blev ændret til 'Afsendt' (attribute modification)\nLokation blev opdateret (attribute modification)\nEn historiklog blev oprettet (instance creation)\nHistorikloggen blev associeret med bremsekaliberen (association formed)
-    Output => Bekræftelsesmeddelse (kaliber afsendt)
+    Output => Bekræftelsesmeddelelse (kaliber afsendt)
 }
 
-SOC_ModtagBremseKaliber -[hidden]down-> SOC_AfsendBremseKaliber
+SOC_ModtagBremsekaliber -[hidden]down-> SOC_AfsendBremsekaliber
+
+note right of SOC_AfsendBremsekaliber
+Forretningsværdi: Korrekt registrering og håndtering
+af bremsekalibre reducerer fejl og gennemløbstid.
+end note
 
 @enduml

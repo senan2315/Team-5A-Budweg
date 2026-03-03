@@ -2,7 +2,7 @@
 left to right direction 
 
 
-package "Model(Domain)" {
+package "Model (Domain)" {
     class Station {
         - stationsType: String
         - stationsNavn: String
@@ -32,22 +32,37 @@ package "Model(Domain)" {
        + Reservedel()
     }
 }
-package "ViewModel(Application)"{
+package "ViewModel (Application)"{
     class BremsekaliberRepository {
+        - bremsekaliber : Bremsekaliber[0..*] 
+        + CreateBremsekaliber()
+        + FindByStregkode(stregkode: String): Bremsekaliber
+        + MoveToNextStation(kaliberNummer: String)
+        + UpdateStatus(kaliberNummer: String, status: Renoveringstatus)
+        + ListByStation(stationsNavn: String): Bremsekaliber[0..*]
         
     }
     class StationRepository {
-        
+        + FindByName(stationsNavn: String): Station
+        + ListAllStations(): Station[0..*]
+        + GetNextStation(stationsNavn: String): Station
     }
     class ReservedelRepository {
+        + FindByStation(stationsNavn: String): Reservedel[0..*]
+        + AddReservedel(reservedelsType: String, reservedelsMængde: int, stationsNavn: String)
+        + UpdateQuantity(reservedelsType: String, reservedelsMængde: int)
+        + ConsumeReservedel(reservedelsType: String, reservedelsMængde: int)
         
     }
     class Controller {
-
+        + RegisterBremsekaliber(stregkode: String, kaliberNummer: String, ordreNummer: String)
+        + ReceiveBremsekaliber(stregkode: String)
+        + SendBremsekaliber(stregkode: String)
+        + PackBremsekaliberForWarehouse(stregkode: String)
         
     }
 }
-package "View(UI)" {
+package "View (UI)" {
     class d{
     }
     class I {
@@ -55,6 +70,20 @@ package "View(UI)" {
     }
 }
 
+I .. Controller
+d .. Controller
+
+Controller .. StationRepository
+Controller .. BremsekaliberRepository
+Controller .. ReservedelRepository
+
+StationRepository .. Station
+BremsekaliberRepository .. Bremsekaliber
+ReservedelRepository .. Reservedel
+
+Bremsekaliber "0..*" -- "1..*" Station
+Renoveringstatus .. Bremsekaliber
+Reservedel "0..*" -- "1..*" Station
 
 
 hide circle

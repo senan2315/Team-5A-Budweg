@@ -5,7 +5,7 @@
 
 **Formål**: Kaliberen er oprettet i systemet og har en stregkode.
 
-**Scope**: Oprettet, scannet og registreret kalibre i lageret.
+**Scope**: Oprettede, scannede og registrerede kalibre i lageret.
 
 
 **Level**: User-goal.
@@ -26,23 +26,23 @@
 
 3.  Bremsekaliber er sorteret efter modtagelse (antagelse)
 
-**Succes garanti**:
+**Succesgaranti**:
 1. Medarbejderen har scannet kaliberens stregkode
 
 2. Kaliberen er oprettet i systemet
 
 3. Kaliber scannes ved hver station
 
-4. Kaliber er klar pakning
+4. Kaliber er klar til pakning
 
-5. System melder kaliber klar til distrubitation 
+5. System melder kaliberen klar til distribution
 
 **Hovedscenarie**: 
 1. Medarbejderen scanner kaliberens stregkode
 
 2. Systemet finder kaliberens ID
 
-3. Systemet viser nuværende status og staion
+3. Systemet viser nuværende status og station
 
 4. Medarbejderen vælger "Send til næste station"
 
@@ -53,7 +53,7 @@
 **Alternativt scenarie**: 
 - Hvis systemet ikke kan registrere stregkoden på kaliberen
 
-1. Scanner registrerer ikke stregkode, så medarbejder registrerer stregkoden manuelt.
+1. Scanneren registrerer ikke stregkoden, så medarbejderen registrerer stregkoden manuelt.
 
 2. Systemet finder kaliberens ID
 
@@ -65,7 +65,7 @@
 
 6. Systemet gemmer ændringen
 
-### **Use Case 2: Opret og registrér nye bremsekalibre**
+### **UC2**: Opret og registrér nye bremsekalibre
 
 **Primær aktør**: Medarbejder
 
@@ -87,7 +87,7 @@ Medarbejdere åbner programmet og vælger at oprette en ny bremsekaliber. Så bl
 
 7. Medarbejder trykker gem
 
-### **Use Case 3: Pak bremsekaliber til lager**
+### **UC3**: Pak bremsekaliber til lager
 
 **Primær aktør**: Medarbejder
 
@@ -96,7 +96,7 @@ Medarbejdere åbner programmet og vælger at oprette en ny bremsekaliber. Så bl
 **Hovedscenarie**:
 1. Kalibre modtages ved station 10
 
-2. Medarbejder skanner Kalibre
+2. Medarbejder skanner kalibre
 
 3. Kalibre pakkes i kasser
 
