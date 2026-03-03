@@ -1,81 +1,86 @@
-@startuml - Designklassediagram (DCD) Budweg
+@startuml - Design Class Diagram (DCD) Budweg
 left to right direction 
 
 package "ViewModel (Application)"{
-    class BremsekaliberRepository {
-        - bremsekaliber : Bremsekaliber[0..*] 
-        + CreateBremsekaliber()
-        + FindByStregkode(stregkode: String): Bremsekaliber
-        + MoveToNextStation(kaliberNummer: String)
-        + UpdateStatus(kaliberNummer: String, status: Renoveringstatus)
-        + ListByStation(stationsNavn: String): Bremsekaliber[0..*]
-        
+    class MainViewModel {
+        - brakeCaliperRepository: BrakeCaliperRepository
+        - stationRepository: StationRepository
+        - sparePartRepository: SparePartRepository
+        + MainViewModel(brakeCaliperRepository: BrakeCaliperRepository,
+        stationRepository: StationRepository, sparePartRepository: SparePartRepository)
+    }
+}
+
+package "Infrastructure (Repositories)" {
+    class BrakeCaliperRepository {
+        - brakeCaliper : BrakeCaliper[0..*]
+        + CreateBrakeCaliper()
+        + FindByBarcode(barcode: String): BrakeCaliper
+        + MoveToNextStation(caliperNumber: String)
+        + UpdateStatus(caliperNumber: String, status: ProcessingStatus)
+        + ListByStation(stationName: String): BrakeCaliper[0..*]
+
     }
     class StationRepository {
             - station : Station[0..*] 
             + CreateStation()
-        + FindByName(stationsNavn: String): Station
+        + FindByName(stationName: String): Station
         + ListAllStations(): Station[0..*]
-        + GetNextStation(stationsNavn: String): Station
+        + GetNextStation(stationName: String): Station
     }
-    class ReservedelRepository {
-        - reservedel : Reservedel[0..*]
-        + CreateReservedel()
-        + FindByStation(stationsNavn: String): Reservedel[0..*]
-        + AddReservedel(reservedelsType: String, reservedelsMængde: int, stationsNavn: String)
-        + UpdateQuantity(reservedelsType: String, reservedelsMængde: int)
-    }
-    class Controller {
-        + RegisterBremsekaliber(stregkode: String, kaliberNummer: String, ordreNummer: String)
-        + ReceiveBremsekaliber(stregkode: String)
-        + SendBremsekaliber(stregkode: String)
+    class SparePartRepository {
+        - sparePart : SparePart[0..*]
+        + CreateSparePart()
+        + FindByStation(stationName: String): SparePart[0..*]
+        + AddSparePart(sparePartType: String, sparePartQuantity: int, stationName: String)
+        + UpdateQuantity(sparePartType: String, sparePartQuantity: int)
     }
 }
 
 package "Model (Domain)" {
     class Station {
-        - stationsType: String
-        - stationsNavn: String
+        - stationType: String
+        - stationName: String
         + Station()
     }
 
-    class Bremsekaliber {
-        - bremsekaliberType: String
-        - bremsekaliberStatus: String
-        - stregkode: String
-        - kaliberNummer: String
-        - ordreNummer: String 
+    class BrakeCaliper {
+        - caliperType: String
+        - caliperStatus: ProcessingStatus
+        - barcode: String
+        - caliperNumber: String
+        - orderNumber: String 
         - note: String
-        + Bremsekaliber() 
+        + BrakeCaliper() 
     }
 
-    class Renoveringstatus <<enumeration>> {
-        modtaget
-        adskilt
-        kasseret
-        afsendt
+    class ProcessingStatus <<enumeration>> {
+        received
+        disassembled
+        scrapped
+        dispatched
     }
 
-    class Reservedel{
-       - reservedelsType: String
-       - reservedelsMængde: int
-       + Reservedel()
+    class SparePart{
+       - sparePartType: String
+       - sparePartQuantity: int
+       + SparePart()
     }
 }
 
 
 
-Controller .. StationRepository
-Controller .. BremsekaliberRepository
-Controller .. ReservedelRepository
+MainViewModel .. StationRepository
+MainViewModel .. BrakeCaliperRepository
+MainViewModel .. SparePartRepository
 
 StationRepository .. Station
-BremsekaliberRepository .. Bremsekaliber
-ReservedelRepository .. Reservedel
+BrakeCaliperRepository .. BrakeCaliper
+SparePartRepository .. SparePart
 
-Bremsekaliber "0..*" -- "1..*" Station
-Renoveringstatus .. Bremsekaliber
-Reservedel "0..*" -- "1..*" Station
+BrakeCaliper "0..*" -- "1..*" Station
+ProcessingStatus .. BrakeCaliper
+SparePart "0..*" -- "1..*" Station
 
 
 hide circle
