@@ -27,13 +27,8 @@
 
 # Sprint 2 uge 10 - 12
 
-<<<<<<< HEAD
 * Pakkediagram
 * Designklassediagram
-=======
-* Pakkediagram 
-* Desginklassediagram
->>>>>>> c3cc147372f3f0cbe88f86a3eeed0d093716fdfe
 * Sekvensdiagram
 * Relationel Databasemodel -> UML Databasemodel -> SQL  Database
 * C#-Kode

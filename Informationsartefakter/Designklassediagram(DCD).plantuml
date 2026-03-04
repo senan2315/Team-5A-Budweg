@@ -3,22 +3,22 @@ left to right direction
 
 package "ViewModel (Application)"{
     class MainViewModel {
-        - brakeCaliperRepository: BrakeCaliperRepository
+        - brakeCaliberRepository: BrakeCaliberRepository
         - stationRepository: StationRepository
         - sparePartRepository: SparePartRepository
-        + MainViewModel(brakeCaliperRepository: BrakeCaliperRepository,
+        + MainViewModel(brakeCaliberRepository: BrakeCaliberRepository,
         stationRepository: StationRepository, sparePartRepository: SparePartRepository)
     }
 }
 
 package "Infrastructure (Repositories)" {
-    class BrakeCaliperRepository {
-        - brakeCaliper : BrakeCaliper[0..*]
-        + CreateBrakeCaliper()
-        + FindByBarcode(barcode: String): BrakeCaliper
-        + MoveToNextStation(caliperNumber: String)
-        + UpdateStatus(caliperNumber: String, status: ProcessingStatus)
-        + ListByStation(stationName: String): BrakeCaliper[0..*]
+    class BrakeCaliberRepository {
+        - brakeCaliber : BrakeCaliber[0..*]
+        + CreateBrakeCaliber()
+        + FindByBarcode(barcode: String): BrakeCaliber
+        + MoveToNextStation(caliberNumber: String)
+        + UpdateStatus(caliberNumber: String, status: ProcessingStatus)
+        + ListByStation(stationName: String): BrakeCaliber[0..*]
 
     }
     class StationRepository {
@@ -44,14 +44,14 @@ package "Model (Domain)" {
         + Station()
     }
 
-    class BrakeCaliper {
-        - caliperType: String
-        - caliperStatus: ProcessingStatus
+    class BrakeCaliber {
+        - caliberType: String
+        - caliberStatus: ProcessingStatus
         - barcode: String
-        - caliperNumber: String
+        - caliberNumber: String
         - orderNumber: String 
         - note: String
-        + BrakeCaliper() 
+        + BrakeCaliber() 
     }
 
     class ProcessingStatus <<enumeration>> {
@@ -71,15 +71,15 @@ package "Model (Domain)" {
 
 
 MainViewModel .. StationRepository
-MainViewModel .. BrakeCaliperRepository
+MainViewModel .. BrakeCaliberRepository
 MainViewModel .. SparePartRepository
 
 StationRepository .. Station
-BrakeCaliperRepository .. BrakeCaliper
+BrakeCaliberRepository .. BrakeCaliber
 SparePartRepository .. SparePart
 
-BrakeCaliper "0..*" -- "1..*" Station
-ProcessingStatus .. BrakeCaliper
+BrakeCaliber "0..*" -- "1..*" Station
+ProcessingStatus .. BrakeCaliber
 SparePart "0..*" -- "1..*" Station
 
 
