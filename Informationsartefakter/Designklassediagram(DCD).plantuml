@@ -13,6 +13,7 @@ package "ViewModel (Application)"{
 
 package "Infrastructure (Repositories)" {
     class BrakeCaliberRepository {
+        - «readonly» connectionString : string
         - brakeCaliber : BrakeCaliber[0..*]
         + CreateBrakeCaliber()
         + FindByBarcode(barcode: String): BrakeCaliber
@@ -22,13 +23,15 @@ package "Infrastructure (Repositories)" {
 
     }
     class StationRepository {
-            - station : Station[0..*] 
-            + CreateStation()
+        - «readonly» connectionString : string
+        - station : Station[0..*] 
+        + CreateStation()
         + FindByName(stationName: String): Station
         + ListAllStations(): Station[0..*]
         + GetNextStation(stationName: String): Station
     }
     class SparePartRepository {
+        - «readonly» connectionString : string
         - sparePart : SparePart[0..*]
         + CreateSparePart()
         + FindByStation(stationName: String): SparePart[0..*]
@@ -39,19 +42,21 @@ package "Infrastructure (Repositories)" {
 
 package "Model (Domain)" {
     class Station {
+        + stationId: int
         - stationType: String
         - stationName: String
-        + Station()
+        + «constructor» Station(id : int)
     }
 
     class BrakeCaliber {
+        + caliberId: int
         - caliberType: String
         - caliberStatus: ProcessingStatus
         - barcode: String
         - caliberNumber: String
         - orderNumber: String 
         - note: String
-        + BrakeCaliber() 
+        + «constructor» BrakeCaliber(id : int)
     }
 
     class ProcessingStatus <<enumeration>> {
@@ -62,9 +67,10 @@ package "Model (Domain)" {
     }
 
     class SparePart{
+       + sparePartId: int
        - sparePartType: String
        - sparePartQuantity: int
-       + SparePart()
+       + «constructor» SparePart(id : int)
     }
 }
 
