@@ -1,0 +1,39 @@
+@startuml - UML DatabaseModel for Budweg
+hide circle
+hide method
+
+/'Relationer
+SPAREPARTS(<ins>SparePartId</ins> SparePartType, SparePartAmount)
+STATION(<ins>StationId</ins>, StationType, StationsName, *SparePartId*)
+BRAKECALIBER(<ins>CaliberId</ins>, CaliberType, CaliberStatus, Barcode, CaliberNumber, OrderNumber, Note, *StationId*)
+'/
+class "SPAREPARTS" <<table>>{
+    {static} <<PK>> SparePartId : Int
+    {field} SparePartType : NVarChar(50)
+    {field} SparePartAmount : Int
+    //<<FK>> StationId : Int//
+}
+
+class "STATION" <<table>>{
+    {static} <<PK>> StationId : Int
+    {field} StationType : NVarChar(50)
+    {field} StationName : NVarChar(50)
+    //<<FK>> SparePartId : Int//
+}
+
+class "BRAKECALIBER" <<table>>{
+    {static} <<PK>> CaliberId : Int
+    {field} CaliberType : NVarChar(50)
+    {field} CaliberStatus : NVarChar(50)
+    {field} Barcode : NVarChar(50)
+    {field} CaliberNumber : NVarChar(50)
+    {field} OrderNumber : NVarChar(50)
+    {field} Note : NVarChar(255)
+    //<<FK>> StationId : Int//
+}
+'relationer'
+SPAREPARTS "0..*" -- "1..*" STATION
+BRAKECALIBER "0..*" -- "1..*" STATION
+
+
+@enduml
