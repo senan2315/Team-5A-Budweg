@@ -126,7 +126,7 @@ Medarbejdere åbner programmet og vælger at oprette en ny bremsekaliber. Så bl
 ### BOSS TEST
 * Bliver overholdt da en chef vil kunne se præcis hvad der er lavet og kunne "markere" den som færdiggjort
 
-### KKK TEST
+### KKK TEST (test for systemdokumentation)
 
 #### Konkret
 * Den er meget konkret i sit flow fx "medarbejderen scanner eller "systemet finder ID"
