@@ -1,6 +1,5 @@
 @startuml - UML DatabaseModel for Budweg
 hide circle
-hide method
 
 /'Relationer
 SPAREPARTS(<ins>SparePartId</ins> SparePartType, SparePartAmount)
@@ -12,6 +11,8 @@ class "SPAREPARTS" <<table>>{
     {field} SparePartType : NVarChar(50)
     {field} SparePartAmount : Int
     //<<FK>> StationId : Int//
+    {method} <<PK>> PK_SPAREPARTS()
+    {method} <<FK>> FK_SPAREPARTS_STATION()
 }
 
 class "STATION" <<table>>{
@@ -19,6 +20,8 @@ class "STATION" <<table>>{
     {field} StationType : NVarChar(50)
     {field} StationName : NVarChar(50)
     //<<FK>> SparePartId : Int//
+    {method} <<PK>> PK_STATION()
+    {method} <<FK>> FK_STATION_SPAREPARTS()
 }
 
 class "BRAKECALIBER" <<table>>{
@@ -30,6 +33,8 @@ class "BRAKECALIBER" <<table>>{
     {field} OrderNumber : NVarChar(50)
     {field} Note : NVarChar(255)
     //<<FK>> StationId : Int//
+    {method} <<PK>> PK_BRAKECALIBER()
+    {method} <<FK>> FK_BRAKECALIBER_STATION()
 }
 'relationer'
 SPAREPARTS "0..*" -- "1..*" STATION
