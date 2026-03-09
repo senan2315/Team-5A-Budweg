@@ -1,0 +1,89 @@
+﻿<Window x:Class="Budweg.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Budweg Caliper System" Height="700" Width="400" 
+        Background="#F2F2F7" WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0,10,0,20">
+            <TextBlock Text="BUDWEG" FontSize="28" FontWeight="Black" Foreground="#E30613" HorizontalAlignment="Center"/>
+            <Separator Background="#E30613" Margin="50,5,50,0"/>
+        </StackPanel>
+
+        <UniformGrid Grid.Row="1" Columns="1">
+
+            <Button Style="{StaticResource BigMenuButtonStyle}" Click="BtnReceive_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="📥" FontSize="30" Margin="0,0,20,0"/>
+                    <TextBlock Text="Modtag Bremsecaliper (F1)" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource BigMenuButtonStyle}" Click="BtnDispatch_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="📤" FontSize="30" Margin="0,0,20,0"/>
+                    <TextBlock Text="Afsend Bremsecaliper (F2)" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource BigMenuButtonStyle}" Click="BtnScrap_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="🗑️" FontSize="30" Margin="0,0,20,0"/>
+                    <TextBlock Text="Kassér (F3)" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource BigMenuButtonStyle}" Click="BtnNote_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="📝" FontSize="30" Margin="0,0,20,0"/>
+                    <TextBlock Text="Note (F4)" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource BigMenuButtonStyle}" Click="BtnInfo_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="ℹ️" FontSize="30" Margin="0,0,20,0"/>
+                    <TextBlock Text="Kaliberinfo (F5)" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+        </UniformGrid>
+
+        <TextBlock Grid.Row="2" Text="Logget ind som: Operatør 1" 
+                   HorizontalAlignment="Center" Foreground="#8E8E93" Margin="0,15,0,5" FontSize="12"/>
+    </Grid>
+
+    <Window.Resources>
+        <Style x:Key="BigMenuButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#1C1C1E"/>
+            <Setter Property="Margin" Value="0,5"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" 
+                                CornerRadius="15" BorderThickness="1" BorderBrush="#D1D1D6">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="8" Opacity="0.1" ShadowDepth="2"/>
+                            </Border.Effect>
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#E5E5EA"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+</Window>
