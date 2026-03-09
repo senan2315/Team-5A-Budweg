@@ -19,9 +19,7 @@ class "STATION" <<table>>{
     {static} <<PK>> StationId : Int
     {field} StationType : NVarChar(50)
     {field} StationName : NVarChar(50)
-    //<<FK>> SparePartId : Int//
     {method} <<PK>> PK_STATION()
-    {method} <<FK>> FK_STATION_SPAREPARTS()
 }
 
 class "BRAKECALIBER" <<table>>{

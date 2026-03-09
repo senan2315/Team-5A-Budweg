@@ -2,7 +2,7 @@
 left to right direction 
 skinparam classAttributeIconSize 0
 
-package "ViewModel (Application)"{
+package "ViewModels (Application)"{
     class MainViewModel {
         - brakeCaliperRepository: BrakeCaliperRepository
         - stationRepository: StationRepository
@@ -12,7 +12,7 @@ package "ViewModel (Application)"{
     }
 }
 
-package "Infrastructure (Repositories)" {
+package "Persistence (Repositories)" {
     class BrakeCaliperRepository {
         - «readonly» connectionString : string
         - brakeCaliper : BrakeCaliper[0..*]
@@ -41,7 +41,7 @@ package "Infrastructure (Repositories)" {
     }
 }
 
-package "Model (Domain)" {
+package "Models (Domain)" {
     class Station {
         + stationId: int
         - stationType: String

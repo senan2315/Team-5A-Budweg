@@ -11,18 +11,20 @@ Package APPLICATION{
     package MainViewModel
     package BremsekaliberViewModel
     package StationViewModel
-    package ReservedelViewModel
+    package ReservedelViewModel 
 }
- 
-Package DOMAIN{
+
+Package PERSISTENCE{
     package ReservedelRepository
     package StationRepository
     package BremsekaliberRepository
+}
+ 
+Package DOMAIN{
     package Reservedel
     package Station
     package Bremsekaliber
     package Renoveringstatus<<enumeration>>
-
 }
 
 Package TechnicalService{
@@ -31,7 +33,8 @@ Package TechnicalService{
 
 
 UI -[dotted]-> APPLICATION
-APPLICATION -[dotted]-> DOMAIN
+APPLICATION -[dotted]-> PERSISTENCE
+PERSISTENCE -[dotted]-> DOMAIN
 DOMAIN -[dotted]-> TechnicalService
 
 
@@ -41,7 +44,7 @@ DOMAIN -[dotted]-> TechnicalService
 '/Applikations pakken
 
 
-'/Domæne pakken
+'/Persistence -> Domæne lag
 StationRepository -[dotted]- Station
 BremsekaliberRepository -[dotted]- Bremsekaliber
 ReservedelRepository -[dotted]- Reservedel

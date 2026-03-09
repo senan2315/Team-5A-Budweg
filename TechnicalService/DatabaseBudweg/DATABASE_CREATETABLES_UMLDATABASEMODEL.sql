@@ -21,20 +21,20 @@ CREATE TABLE SPAREPARTS(
         REFERENCES STATION(StationId)
 );
 
-CREATE TABLE BRAKECALIBER(
-    CaliberId       INT IDENTITY(1,1),
-    CaliberType     NVARCHAR(50),
-    CaliberStatus   NVARCHAR(50),
+CREATE TABLE BRAKECALIPER(
+    CaliperId       INT IDENTITY(1,1),
+    CaliperType     NVARCHAR(50),
+    CaliperStatus   NVARCHAR(50),
     Barcode         NVARCHAR(50),
-    CaliberNumber   NVARCHAR(50),
+    CaliperNumber   NVARCHAR(50),
     OrderNumber     NVARCHAR(50),
     Note            NVARCHAR(255),
     StationId       INT,
 
-    CONSTRAINT PK_BRAKECALIBER
+    CONSTRAINT PK_BRAKECALIPER
         PRIMARY KEY (CaliberId),
 
-    CONSTRAINT FK_BRAKECALIBER_STATION
+    CONSTRAINT FK_BRAKECALIPER_STATION
         FOREIGN KEY (StationId)
         REFERENCES STATION(StationId)
 );
