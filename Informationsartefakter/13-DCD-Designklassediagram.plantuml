@@ -1,25 +1,26 @@
 @startuml - Design Class Diagram (DCD) Budweg
 left to right direction 
+skinparam classAttributeIconSize 0
 
 package "ViewModel (Application)"{
     class MainViewModel {
-        - brakeCaliberRepository: BrakeCaliberRepository
+        - brakeCaliperRepository: BrakeCaliperRepository
         - stationRepository: StationRepository
         - sparePartRepository: SparePartRepository
-        + MainViewModel(brakeCaliberRepository: BrakeCaliberRepository,
+        + MainViewModel(brakeCaliperRepository: BrakeCaliperRepository,
         stationRepository: StationRepository, sparePartRepository: SparePartRepository)
     }
 }
 
 package "Infrastructure (Repositories)" {
-    class BrakeCaliberRepository {
+    class BrakeCaliperRepository {
         - «readonly» connectionString : string
-        - brakeCaliber : BrakeCaliber[0..*]
-        + CreateBrakeCaliber()
-        + FindByBarcode(barcode: String): BrakeCaliber
-        + MoveToNextStation(caliberNumber: String)
-        + UpdateStatus(caliberNumber: String, status: ProcessingStatus)
-        + ListByStation(stationName: String): BrakeCaliber[0..*]
+        - brakeCaliper : BrakeCaliper[0..*]
+        + CreateBrakeCaliper()
+        + FindByBarcode(barcode: String): BrakeCaliper
+        + MoveToNextStation(caliperNumber: String)
+        + UpdateStatus(caliperNumber: String, status: ProcessingStatus)
+        + ListByStation(stationName: String): BrakeCaliper[0..*]
 
     }
     class StationRepository {
@@ -48,15 +49,15 @@ package "Model (Domain)" {
         + «constructor» Station(id : int)
     }
 
-    class BrakeCaliber {
-        + caliberId: int
-        - caliberType: String
-        - caliberStatus: ProcessingStatus
+    class BrakeCaliper {
+        + caliperId: int
+        - caliperType: String
+        - caliperStatus: ProcessingStatus
         - barcode: String
-        - caliberNumber: String
+        - caliperNumber: String
         - orderNumber: String 
         - note: String
-        + «constructor» BrakeCaliber(id : int)
+        + «constructor» BrakeCaliper(id : int)
     }
 
     class ProcessingStatus <<enumeration>> {
@@ -77,15 +78,15 @@ package "Model (Domain)" {
 
 
 MainViewModel .. StationRepository
-MainViewModel .. BrakeCaliberRepository
+MainViewModel .. BrakeCaliperRepository
 MainViewModel .. SparePartRepository
 
 StationRepository .. Station
-BrakeCaliberRepository .. BrakeCaliber
+BrakeCaliperRepository .. BrakeCaliper
 SparePartRepository .. SparePart
 
-BrakeCaliber "0..*" -- "1..*" Station
-ProcessingStatus .. BrakeCaliber
+BrakeCaliper "0..*" -- "1..*" Station
+ProcessingStatus .. BrakeCaliper
 SparePart "0..*" -- "1..*" Station
 
 
