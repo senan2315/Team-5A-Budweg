@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Budweg
+namespace Budweg.Models
 {
     public class Station
     {
