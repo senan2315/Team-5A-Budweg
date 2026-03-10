@@ -1,3 +1,7 @@
+CREATE DATABASE Budweg;
+GO 
+USE Budweg;
+
 CREATE TABLE STATION(
     StationId     INT IDENTITY(1,1),
     StationType   NVARCHAR(50),
@@ -32,7 +36,7 @@ CREATE TABLE BRAKECALIPER(
     StationId       INT,
 
     CONSTRAINT PK_BRAKECALIPER
-        PRIMARY KEY (CaliberId),
+        PRIMARY KEY (CaliperId),
 
     CONSTRAINT FK_BRAKECALIPER_STATION
         FOREIGN KEY (StationId)

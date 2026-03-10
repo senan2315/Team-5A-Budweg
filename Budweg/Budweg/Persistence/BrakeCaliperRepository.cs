@@ -30,11 +30,11 @@ namespace Budweg.Persistence
 
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
-                    cmd.Parameters.AddWithValue("@CaliperType", brakeCaliperToBeCreated.CaliperType);
-                    cmd.Parameters.AddWithValue("@CaliperStatus", brakeCaliperToBeCreated.CaliperStatus.ToString());
-                    cmd.Parameters.AddWithValue("@Barcode", brakeCaliperToBeCreated.Barcode);
-                    cmd.Parameters.AddWithValue("@CaliperNumber", brakeCaliperToBeCreated.CaliperNumber);
-                    cmd.Parameters.AddWithValue("@OrderNumber", brakeCaliperToBeCreated.OrderNumber);
+                    cmd.Parameters.AddWithValue("@CaliperType", brakeCaliperToBeCreated.CaliperType ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CaliperStatus", brakeCaliperToBeCreated.CaliperStatus.ToString() ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Barcode", brakeCaliperToBeCreated.Barcode ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CaliperNumber", brakeCaliperToBeCreated.CaliperNumber ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@OrderNumber", brakeCaliperToBeCreated.OrderNumber ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("@Note", brakeCaliperToBeCreated.Note ?? (object)DBNull.Value);
                     cmd.ExecuteNonQuery();
                 }
