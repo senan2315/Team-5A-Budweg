@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="Budweg/Budweg.csproj" />
+  <Project Path="BudwegTest/BudwegTest.csproj" Id="067f1cc3-4cf3-4a59-b423-3aa755d0828c" />
 </Solution>
